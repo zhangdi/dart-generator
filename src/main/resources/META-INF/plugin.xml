@@ -1,0 +1,46 @@
+<idea-plugin>
+    <id>com.github.zhangdi.dart-generator</id>
+    <name>Dart Generator</name>
+    <vendor email="zhangdi_me@163.com" url="https://github.com/zhangdi">Di Zhang</vendor>
+
+    <description><![CDATA[
+        <h2>Dart 生成器</h2>
+        <p>用于快速生成 Dart 方法等</p>
+        <h3>功能</h3>
+        <ul>
+            <li>toMap 或 toJson 生成器</li>
+            <li>fromMap 或 fromJson 生成器</li>
+        </ul>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>Dart</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- 配置界面 -->
+        <projectConfigurable
+                groupId="tools"
+                instance="com.github.zhangdi.dart.generator.configuration.Configuration"
+        />
+    </extensions>
+
+    <actions>
+        <!-- ToMapAction -->
+        <action id="com.github.zhangdi.dart.generator.actions.ToMapAction"
+                class="com.github.zhangdi.dart.generator.actions.ToMapAction"
+                text="toMap()">
+            <add-to-group group-id="GenerateGroup"
+                          anchor="after"
+                          relative-to-action="Generate.EqualsAndHashcode.Dart"/>
+        </action>
+        <action id="com.github.zhangdi.dart.generator.actions.FromMapAction"
+                class="com.github.zhangdi.dart.generator.actions.FromMapAction"
+                text="fromMap()">
+            <add-to-group group-id="GenerateGroup"
+                          anchor="after"
+                          relative-to-action="com.github.zhangdi.dart.generator.actions.ToMapAction"/>
+        </action>
+    </actions>
+</idea-plugin>
