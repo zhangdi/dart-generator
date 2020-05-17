@@ -3,8 +3,10 @@ plugins {
     id 'org.jetbrains.intellij' version '0.4.21'
 }
 
+def PROJECT_VERSION = '0.1.0'
+
 group 'com.github.zhangdi'
-version '0.1.0'
+version project.hasProperty('VERSION') ? String.valueOf(VERSION) : PROJECT_VERSION
 
 repositories {
     mavenCentral()
@@ -26,8 +28,5 @@ intellij {
     type "IU"
     plugins "Dart:$dartVersion"
 }
-patchPluginXml {
-    changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
-}
+
+patchPluginXml {}
