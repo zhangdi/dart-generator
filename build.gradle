@@ -3,13 +3,15 @@ plugins {
     id 'org.jetbrains.intellij' version '0.4.21'
 }
 
-def PROJECT_VERSION = '0.1.0'
+def PROJECT_VERSION = '0.2.0'
 
 group 'com.github.zhangdi'
 version project.hasProperty('VERSION') ? String.valueOf(VERSION) : PROJECT_VERSION
 
 repositories {
     mavenCentral()
+    maven { url "https://www.jetbrains.com/intellij-repository/releases" }
+    maven { url "https://jetbrains.bintray.com/intellij-third-party-dependencies" }
     maven {
         url "https://oss.sonatype.org/content/repositories/snapshots/"
     }

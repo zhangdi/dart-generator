@@ -38,6 +38,7 @@ public class ConfigurationData {
 
         properties.setValue(KEY_TO_MAP_METHOD_NAME, toMapMethodName);
         properties.setValue(KEY_FROM_MAP_METHOD_NAME, fromMapMethodName);
+
     }
 
     void reset() {
